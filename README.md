@@ -1,12 +1,18 @@
 # showNone
-Quick macOS app to minimize all open windows (including Finder) with a Dock click. Made with AppleScript.
+
+A simple macOS utility to minimize all open windows — including Finder — with a single click on its Dock icon.
+
+Built with AppleScript.
+
+---
 
 ## How to Build It
 
-Open Script Editor (in Applications > Utilities).
-Paste this code:
+1. Open **Script Editor** (found in `Applications > Utilities`).
 
-```
+2. Paste the following code:
+
+```applescript
 on run
     -- Do nothing on initial launch
 end run
@@ -18,19 +24,29 @@ on reopen
             set visible of anApp to false
         end repeat
     end tell
+
     tell application "Finder"
         set collapsed of every window to true
     end tell
 end reopen
 ```
 
-Go to File > Save:
+3. Go to File > Save:
 
-```
-Format: Application
-Name: showNone
-Check "Stay open after run handler"
-Uncheck "Show startup screen"
-```
+- Format: Application
+- Name: showNone
+- Check "Stay open after run handler"
+- Uncheck "Show startup screen"
 
-Drag showNone.app to your Dock.
+4. Drag showNone.app to your Dock.
+
+
+## Custom Icon
+
+1. Download the PNG image from this repo (or create your own one).
+
+2. Right-click showNone.app > Get Info.
+
+3. Drag the PNG onto the icon in the top-left corner of the Get Info window.
+
+4. Close the window—the icon updates automatically.
